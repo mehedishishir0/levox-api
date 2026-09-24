@@ -17,7 +17,7 @@ func main() {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 
-		w.Write([]byte(`{"message":"all ok"}`))
+		w.Write([]byte(`{"message":"all oky"}`))
 	})
 
 	srv := http.Server{
