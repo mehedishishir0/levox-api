@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/mehedishishir0/levox-api/internal/config"
+	"github.com/mehedishishir0/levox-api/internal/handlers"
 )
 
 func main() {
@@ -13,12 +14,7 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("GET /health", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusOK)
-
-		w.Write([]byte(`{"message":"all oky"}`))
-	})
+	mux.HandleFunc("GET /health", handlers.Healthz)
 
 	srv := http.Server{
 		Addr:         ":" + cfg.Port,
